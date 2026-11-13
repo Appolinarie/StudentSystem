@@ -1,5 +1,6 @@
 package org.example.studentsystem;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 @Service
 public class StudentService {
 
+    @Autowired
     private final StudentRepository studentRepository;
 
     public StudentService(StudentRepository studentRepository) {
@@ -29,9 +31,12 @@ public class StudentService {
     public Student updateStudent(int id, Student updatedStudent) {
         Student current = getStudentById(id);
 
-        current.setName(updatedStudent.getName());
-        current.setAge(updatedStudent.getAge());
-        current.setGender(updatedStudent.getGender();
+
+
+            current.setName(updatedStudent.getName());
+            current.setAge(updatedStudent.getAge());
+            current.setGender(updatedStudent.getGender());
+
 
         return studentRepository.save(current);
     }
